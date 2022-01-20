@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sarada Eyes</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<style type="text/css">
+		.charBox {
+			float: left;
+			height: 1540px;
+			width: 1016px;
+			/*background-color: red;*/
+		}
+		.menu {
+			float: right;
+			width: 999px;
+			text-align: center;
+			/*background-color: yellow;*/
+		}
+		.EyesBox {
+			float: right;
+			height:640px;
+			width: 999px;
+			text-align: center;
+			/*background-color: green;*/
+		}
+		.buttonBlock {
+			left: 100%;
+			bottom: 85%;
+			z-index: 3;
+		}
+		.char{
+			position: absolute;
+			z-index: 1;
+		}
+		#eyeL {
+			position: absolute;
+			left: 629px;
+			top: 387px;
+			height: 67px;
+			width: 67px;
+			z-index: 2;
+		}
+		#eyeR {
+			position: absolute;
+			left: 427px;
+			top: 387px;
+			height: 63px;
+			width: 63px;
+			z-index: 2;
+		}
+
+		/*Credit:https://code-boxx.com/rotate-spin-image-html-css/*/
+		@keyframes spinning {
+  		  from { transform: rotate(0deg) }
+  		  to { transform: rotate(360deg) }
+  		}
+
+		/*Credit:https://code-boxx.com/rotate-spin-image-html-css/*/
+  		/*Remove ":hover" to make is spin by it's self*/
+  		.spinhov:hover {
+  		  animation-name: spinning;
+  		  animation-duration: 1s;
+  		  animation-iteration-count: 100;
+  		  /* linear | ease | ease-in | ease-out | ease-in-out */
+  		  animation-timing-function: ease-in-out;
+  		}
+	</style>
+</head>
+<body>
+	<div class="charBox">
+		<img id= "eyeL" class="spinhov" src="Sharingan_double.png">
+		<img id= "eyeR" class="spinhov" src="Sharingan_simple.png">
+		<img id="char" class="char" src="Sarada.png">
+	</div>
+	<div class="menu">
+		<h1><center><strong>Smile</strong></center></h1>
+		<input type="button" class="buttonBlock" id="sharinganbutton" onclick="makeSmile()" value="Click to stop Smile">
+		<h1><center><strong>Left Eye</strong></center></h1>
+		<input type="button" class="buttonBlock" id="sharinganbutton" onclick="makeLeft()" value="Click for Left Eye Only">
+		<h1><center><strong>Right Eye</strong></center></h1>
+		<input type="button" class="buttonBlock" id="sharinganbutton" onclick="makeRight()" value="Click for Right Eye Only">
+		<h1><center><strong>Both Eyes</strong></center></h1>
+		<input type="button" class="buttonBlock" id="sharinganbutton" onclick="makeBoth()" value="Click for Both Eyes">
+		<h1></h1>
+	</div>	
+	<div class="EyesBox">
+		<h1 id="mainText"><center><strong>Both Eyes</strong></center></h1>
+		<input type="button" class="buttonBlock" onclick="unawake()" value="Disable Sharingan">
+		
+		<!--Sharingan-->
+		<input type="button" class="buttonBlock" onclick="awake00()" value="Clean Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake01()" value="1 Tomoe Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake02()" value="2 Tomoe Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake03()" value="3 Tomoe Sharingan">
+		<!--Mangekyō Sharingan-->
+		<input type="button" class="buttonBlock" onclick="awake04()" value="Proto-Mangekyō Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake05()" value="Baru Mangekyō Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake06()" value="Indra Mangekyō Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake07()" value="Itachi Mangekyō Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake08()" value="Izuna Mangekyō Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake09()" value="Madara Mangekyō Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake10()" value="Naka Mangekyō Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake11()" value="Naori Mangekyō Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake12()" value="Obito / Kakashi Mangekyō Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake13()" value="Rai Mangekyō Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake14()" value="Sarada Mangekyō Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake15()" value="Sasuke Mangekyō Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake16()" value="Shin Mangekyō Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake17()" value="Shisui Mangekyō Sharingan">
+	
+		<!--Eternal Mangekyō Sharingan-->
+		<input type="button" class="buttonBlock" onclick="awake18()" value="Madara Eternal Mangekyō Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake19()" value="Sarada Eternal Mangekyō Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake20()" value="Sasuke Eternal Mangekyō Sharingan">
+	
+		<!--Others-->
+		<input type="button" class="buttonBlock" onclick="awake21()" value="Byakugan">
+		<input type="button" class="buttonBlock" onclick="awake22()" value="Isshiki Dōjutsu">
+		<input type="button" class="buttonBlock" onclick="awake23()" value="Jōgan">
+		<input type="button" class="buttonBlock" onclick="awake24()" value="Ketsuryūgan">
+		<input type="button" class="buttonBlock" onclick="awake25()" value="Rinne_Sharingan">
+		<input type="button" class="buttonBlock" onclick="awake26()" value="Rinnegan">
+		<input type="button" class="buttonBlock" onclick="awake27()" value="Tenseigan">
+		<input type="button" class="buttonBlock" onclick="awake28()" value="Ranmaru's Kekkei Genkai">
+	</div>
+
+	<script type="text/javascript">
+		var smile = 0;
+		var eyes = 3;
+		function makeSmile() {
+			if(smile == 1)	{
+				document.querySelector("#sharinganbutton").value = ("Click to stop Smile");
+				document.getElementById("char").src = "Sarada.png";
+				smile = 0;
+			}
+			else if (smile == 0) {
+				document.querySelector("#sharinganbutton").value = ("Click to Smile");
+				document.getElementById("char").src = "Sarada01.png";
+				smile = 1;
+			}
+		}
+		function makeLeft() {
+			eyes = 1;
+			if(eyes == 1){
+				$('#mainText').html("Left Eye");
+			}
+		}
+		function makeRight() {
+			eyes = 2;
+			if(eyes == 2){
+				$('#mainText').html("Right Eye");
+			}
+		}
+		function makeBoth() {
+			eyes = 3;
+			if(eyes == 3){
+				$('#mainText').html("Both Eyes");
+			}
+		}
+
+		function unawake() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "blank.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "blank.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "blank.png";
+				document.getElementById("eyeR").src = "blank.png";}
+		}
+
+		function awake00() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Sharingan_clean.png";}
+			else if(eyes == 2){	
+				document.getElementById("eyeR").src = "Sharingan_clean.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Sharingan_clean.png";
+				document.getElementById("eyeR").src = "Sharingan_clean.png";}
+		}
+				function awake01() {
+			if(eyes == 1){
+				document.getElementById("eyeR").src = "Sharingan_simple.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeL").src = "Sharingan_simple.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeR").src = "Sharingan_simple.png";
+				document.getElementById("eyeL").src = "Sharingan_simple.png";
+			}
+		}
+		function awake02() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Sharingan_double.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Sharingan_double.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Sharingan_double.png";
+				document.getElementById("eyeR").src = "Sharingan_double.png";
+			}
+		}
+		function awake03() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Sharingan_triple.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Sharingan_triple.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Sharingan_triple.png";
+				document.getElementById("eyeR").src = "Sharingan_triple.png";
+			}
+		}
+		function awake04() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Proto_Mangekyou_Sharingan.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Proto_Mangekyou_Sharingan.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Proto_Mangekyou_Sharingan.png";
+				document.getElementById("eyeR").src = "Proto_Mangekyou_Sharingan.png";
+			}
+		}
+		function awake05() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Baru.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Baru.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Baru.png";
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Baru.png";
+			}
+		}
+		function awake06() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Indra.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Indra.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Indra.png";
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Indra.png";
+			}
+		}
+		function awake07() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Itachi.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Itachi.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Itachi.png";
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Itachi.png";
+			}
+		}
+		function awake08() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Izuna.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Izuna.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Izuna.png";
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Izuna.png";
+			}
+		}
+		function awake09() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Madara.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Madara.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Madara.png";
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Madara.png";
+			}
+		}
+		function awake10() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Naka.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Naka.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Naka.png";
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Naka.png";
+			}
+		}
+		function awake11() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Naori.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Naori.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Naori.png";
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Naori.png";
+			}
+		}
+		function awake12() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Kakashi.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Kakashi.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Kakashi.png";
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Kakashi.png";
+			}
+		}
+		function awake13() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Rai.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Rai.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Rai.png";
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Rai.png";
+			}
+		}
+		function awake14() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_SaradaV2.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Sarada.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_SaradaV2.png";
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Sarada.png";
+			}
+		}
+		function awake15() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Sasuke.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Sasuke.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Sasuke.png";
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Sasuke.png";
+			}
+		}
+		function awake16() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Shin.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Shin.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Shin.png";
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Shin.png";
+			}
+		}
+		function awake17() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Shisui.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Shisui.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Shisui.png";
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Shisui.png";
+			}
+		}
+		function awake18() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Madara_(Eternal).png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Madara_(Eternal).png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Madara_(Eternal).png";
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Madara_(Eternal).png";
+			}
+		}
+		function awake19() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Sarada_(Eternal).png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Sarada_(Eternal).png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Sarada_(Eternal).png";
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Sarada_(Eternal).png";
+			}
+		}
+		function awake20() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Sasuke_(Eternal).png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Sasuke_(Eternal).png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Mangekyou_Sharingan_Sasuke_(Eternal).png";
+				document.getElementById("eyeR").src = "Mangekyou_Sharingan_Sasuke_(Eternal).png";
+			}
+		}
+		function awake21() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Byakugan.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Byakugan.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Byakugan.png";
+				document.getElementById("eyeR").src = "Byakugan.png";
+			}
+		}
+		function awake22() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Isshiki_Dōjutsu.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Isshiki_Dōjutsu.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Isshiki_Dōjutsu.png";
+				document.getElementById("eyeR").src = "Isshiki_Dōjutsu.png";
+			}
+		}
+		function awake23() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Jōgan.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Jōgan.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Jōgan.png";
+				document.getElementById("eyeR").src = "Jōgan.png";
+			}
+		}
+		function awake24() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Ketsuryūgan.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Ketsuryūgan.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Ketsuryūgan.png";
+				document.getElementById("eyeR").src = "Ketsuryūgan.png";
+			}
+		}
+		function awake25() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Rinne_Sharingan.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Rinne_Sharingan.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Rinne_Sharingan.png";
+				document.getElementById("eyeR").src = "Rinne_Sharingan.png";
+			}
+		}
+		function awake26() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Rinnegan.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Rinnegan.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Rinnegan.png";
+				document.getElementById("eyeR").src = "Rinnegan.png";
+			}
+		}
+		function awake27() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Tenseigan.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Tenseigan.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Tenseigan.png";
+				document.getElementById("eyeR").src = "Tenseigan.png";
+			}
+		}
+		function awake28() {
+			if(eyes == 1){
+				document.getElementById("eyeL").src = "Ranmaru's_Kekkei_Genkai.png";}
+			else if(eyes == 2){
+				document.getElementById("eyeR").src = "Ranmaru's_Kekkei_Genkai.png";}
+			else if(eyes == 3){
+				document.getElementById("eyeL").src = "Ranmaru's_Kekkei_Genkai.png";
+				document.getElementById("eyeR").src = "Ranmaru's_Kekkei_Genkai.png";
+			}
+		}
+	</script>
+</body>
+</html>
